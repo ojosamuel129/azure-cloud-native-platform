@@ -1,3 +1,3 @@
 # azure-cloud-native-platform
 
-##Week 1 notes
+## Week 1 notes
