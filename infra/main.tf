@@ -1,22 +1,13 @@
-terraform {
-  required_version = ">= 1.5"
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~> 4.0"
-    }
+locals {
+  tags = {
+    environment = var.environment
+    project     = "azure-cloud-native-platform"
+    owner       = "samuel"
   }
-}
-
-provider "azurerm" {
-  features {}
 }
 
 resource "azurerm_resource_group" "main" {
-  name     = "rg-tfdemo-uks-001"
-  location = "uksouth"
-  tags = {
-    environment = "learning"
-    owner       = "samuel"
-  }
+  name     = "rg-${var.project}-${var.environment}-uks-001"
+  location = var.location
+  tags     = local.tags
 }
