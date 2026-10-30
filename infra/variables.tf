@@ -12,3 +12,8 @@ variable "environment" {
   type    = string
   default = "dev"
 }
+
+variable "acr_name" {
+  type        = string
+  description = "Globally unique registry name, 5 to 50 lowercase letters and numbers"
+}
